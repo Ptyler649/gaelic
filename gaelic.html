@@ -44,23 +44,23 @@ Home >
 
 
 <p> 
-
 	<button id="home3" style="width:49%; height:100px; font-size: 30px" onclick="home3()" type="button">Home 3 Point</button> 
-
 	<button id="away3" style="width:49%; height:100px; font-size: 30px" onclick="away3()" type="button">Away 3 Point</button> 
 </p>
 
 <p> 
 	<button id="home1" style="width:49%; height:100px; font-size: 30px" onclick="home1()" type="button">Home 1 Point</button> 
-
 	<button id="away1" style="width:49%; height:100px; font-size: 30px" onclick="away1()" type="button">Away 1 Point</button> 
-	
 </p>
 
 
+<p>
+	<button type="submit" id="back" style="text-align: center; margin: auto; height:150px; width:150px; font-size: 30px" onclick="back()">BACK</button>
+</p>
 
 
 <script>
+var lastbuttonid = 1
 
 
 function home3() { 	
@@ -69,6 +69,9 @@ function home3() {
 	var xx = parseInt(x);
 	var y = 1;
 	var z = xx + y;
+
+	// for back press
+	lastbuttonid = 1;
 
 	document.getElementById("txtHomeJob1").value = z;
 }
@@ -80,6 +83,9 @@ function home1() {
 	var y = 1;
 	var z = xx + y;
 
+	// for back press
+	lastbuttonid = 2;
+
 	document.getElementById("txtHomeJob2").value = z;
 }
 
@@ -89,6 +95,9 @@ function away3() {
 	var xx = parseInt(x);
 	var y = 1;
 	var z = xx + y;
+
+	// for back press
+	lastbuttonid = 3;
 
 	document.getElementById("txtAwayJob1").value = z;
 }
@@ -100,8 +109,85 @@ function away1() {
 	var y = 1;
 	var z = xx + y;
 
+	// for back press
+	lastbuttonid = 4;
+
 	document.getElementById("txtAwayJob2").value = z;
 }
+
+function back() {
+
+	if (lastbuttonid == 1) {
+		var xa = document.getElementById("txtHomeJob1").value;
+
+		var xxa = parseInt(xa);
+		var ya = 1;
+		
+		if (xxa > 0){
+			var za = xxa - ya;
+		}
+		else
+		{
+			var za = 0;
+		};
+
+		document.getElementById("txtHomeJob1").value = za;
+	};
+
+	if (lastbuttonid == 2) {
+		var xb = document.getElementById("txtHomeJob2").value;
+
+		var xxb = parseInt(xb);
+		var yb = 1;
+		
+		if (xxb > 0){
+			var zb = xxb - yb;
+		}
+		else
+		{
+			var zb = 0;
+		};
+
+		document.getElementById("txtHomeJob2").value = zb;
+	};
+
+	if (lastbuttonid == 3) {
+		var xc = document.getElementById("txtAwayJob1").value;
+
+		var xxc = parseInt(xc);
+		var yc = 1;
+		
+		if (xxc > 0){
+			var zc = xxc - yc;
+		}
+		else
+		{
+			var zc = 0;
+		};
+
+		document.getElementById("txtAwayJob1").value = zc;
+	};
+
+
+	if (lastbuttonid == 4) {
+		var xd = document.getElementById("txtAwayJob2").value;
+
+		var xxd = parseInt(xd);
+		var yd = 1;
+
+		if (xxd > 0){
+			var zd = xxd - yd;
+		}
+		else
+		{
+			var zd = 0;
+		};
+			
+		document.getElementById("txtAwayJob2").value = zd;
+	};
+
+}
+
 
 </script>
 
